@@ -1,1 +1,31 @@
-# cinema_dx
+# Welcome to Cinema_dx 👋
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
+[![License: MIT License](https://img.shields.io/badge/License-MIT License-yellow.svg)](#)
+
+> Simple cinema catalog aplication
+
+## Install
+
+```sh
+yarn install
+```
+
+## Usage
+
+```sh
+yarn run start
+```
+
+## Author
+
+👤 **Gabriel Julio**
+
+* Github: [@GabsJJ](https://github.com/GabsJJ)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
