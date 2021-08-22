@@ -1,9 +1,8 @@
 import styles from '../../../../styles/Home.module.css'
 import Image from 'next/image'
-import { getMovieByID } from '../../../services/MovieService'
-import { useEffect, useState } from 'react'
+import { useFetch } from '../../../hooks/useFetch'
 
-type Movie = {
+export interface Movie {
   poster_path: string
   title: string
   genres: Array<{
@@ -13,27 +12,19 @@ type Movie = {
 }
 
 export const Home = (): JSX.Element => {
-  const [movie, setMovie] = useState<Movie>()
-
-  const loadData = async () => {
-    setMovie(await getMovieByID(490))
-  }
-
-  useEffect(() => {
-    loadData()
-  }, [])
+  const { data } = useFetch<Movie>(`/3/movie/557`)
 
   return (
     <div className={styles.container}>
       <main>
         <Image
-          src={'https://image.tmdb.org/t/p/w500' + movie?.poster_path}
+          src={'https://image.tmdb.org/t/p/w500' + data?.poster_path}
           alt="movie poster"
           width={424}
           height={637}
         />
-        <p style={{ fontWeight: 'bold', fontSize: 20 }}>{movie?.title}</p>
-        {movie?.genres.map((genre) => {
+        <p style={{ fontWeight: 'bold', fontSize: 20 }}>{data?.title}</p>
+        {data?.genres.map((genre) => {
           return <p key={genre.id}>{genre.name}</p>
         })}
       </main>
