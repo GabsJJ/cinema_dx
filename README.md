@@ -2,7 +2,7 @@
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
 [![License: MIT License](https://img.shields.io/badge/License-MIT License-yellow.svg)](#)
 
-> Simple cinema catalog aplication
+> Simple cinema catalog aplication using NextJS with TypeScript and SWR
 
 ## Install
 
