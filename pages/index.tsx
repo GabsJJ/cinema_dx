@@ -6,7 +6,7 @@ export default function Home(): JSX.Element {
     <>
       <Head>
         <title>Cinema DX</title>
-        <meta name="description" content="TMZ" />
+        <meta name="description" content="cinemadx" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <style>

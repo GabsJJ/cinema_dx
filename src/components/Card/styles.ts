@@ -11,10 +11,11 @@ export const Container = styled.section<ContainerProps>`
   max-width: ${({ width }) => (width ? width : 176)}px;
   max-height: ${({ height }) => (height ? height : 264)}px;
 
-  margin: 0 20px 150px 20px;
+  margin: 0 5px 150px 20px;
 `
 export const ContainerFigure = styled.div`
-  margin: 0;
+  height: 264px;
+  box-shadow: 2px 2px 19px 0px rgb(0 0 0 / 67%);
 `
 
 export const Details = styled.div`

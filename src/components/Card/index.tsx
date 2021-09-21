@@ -1,45 +1,40 @@
 import React from 'react'
-import {
-  Container,
-  Title,
-  Subtitle,
-  Details,
-  ContainerFigure,
-  Genres,
-  VoteAverage,
-} from './style'
-import Figure from '../Figure'
-import { Movie, GenresArray } from '../Template/Home'
+import * as S from './styles'
+
+import { Figure } from '../Figure'
+
+import { GenresArray, Movie } from '../../types'
 
 interface CardProps {
   movieObject: Movie
   genresArray: GenresArray
+  className?: string
 }
 
-const Card: React.FC<CardProps> = ({ movieObject, genresArray }) => {
+const Card: React.FC<CardProps> = ({ movieObject, genresArray, className }) => {
   return (
-    <Container>
-      <VoteAverage>{movieObject.vote_average}</VoteAverage>
-      <ContainerFigure>
+    <S.Container className={className}>
+      <S.VoteAverage>{movieObject.vote_average}</S.VoteAverage>
+      <S.ContainerFigure>
         <Figure
           src={'https://image.tmdb.org/t/p/w500' + movieObject.poster_path}
           alt="movie poster"
           width={176}
           height={264}
         />
-      </ContainerFigure>
-      <Details>
-        <Title>{movieObject.title}</Title>
-        <Genres>
+      </S.ContainerFigure>
+      <S.Details>
+        <S.Title>{movieObject.title}</S.Title>
+        <S.Genres>
           {movieObject.genre_ids.map((genreFromMovies, key) => {
             const genre = genresArray.genres.find(
               (element) => element.id === genreFromMovies
             )
-            return <Subtitle key={key}>{genre.name}</Subtitle>
+            return <S.Subtitle key={key}>{genre.name}</S.Subtitle>
           })}
-        </Genres>
-      </Details>
-    </Container>
+        </S.Genres>
+      </S.Details>
+    </S.Container>
   )
 }
 

@@ -26,4 +26,4 @@ const Figure: React.FC<FigureProps> = ({
   )
 }
 
-export default Figure
+export { Figure }

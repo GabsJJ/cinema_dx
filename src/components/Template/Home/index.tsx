@@ -1,28 +1,9 @@
-import Card from '../../Card'
 import * as S from './styles'
+
+import { Card, Header, Footer } from '../../../components'
+import { GenresArray, ListMovies, Movie } from '../../../types'
+
 import { useFetch } from '../../../hooks/useFetch'
-
-export interface Movie {
-  id: number
-  poster_path: string
-  title: string
-  vote_average: number
-  genre_ids: Array<number>
-}
-
-interface Genre {
-  id: number
-  name: string
-}
-
-export interface GenresArray {
-  genres: Array<Genre>
-}
-
-interface ListMovies {
-  page: number
-  results: Array<Movie>
-}
 
 export const Home = (): JSX.Element => {
   const { data: genresArrayResult } =
@@ -33,18 +14,23 @@ export const Home = (): JSX.Element => {
 
   return (
     <>
-      <S.Title>Most Popular</S.Title>
+      <Header text="CinemaDX" />
+      <aside>Aside</aside>
       <S.Main>
-        {movies?.results.map((movie: Movie, key) => {
-          return (
-            <Card
-              key={key}
-              movieObject={movie}
-              genresArray={genresArrayResult}
-            />
-          )
-        })}
+        <S.Title>Most Popular</S.Title>
+        <S.Container>
+          {movies?.results.map((movie: Movie, key) => {
+            return (
+              <Card
+                key={key}
+                movieObject={movie}
+                genresArray={genresArrayResult}
+              />
+            )
+          })}
+        </S.Container>
       </S.Main>
+      <Footer text="Footer" />
     </>
   )
 }
