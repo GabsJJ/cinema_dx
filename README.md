@@ -1,4 +1,4 @@
-# Welcome to Cinema_dx 👋
+# Welcome to CinemaDX 👋
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
 
 > Simple cinema catalog aplication using NextJS with TypeScript and SWR
