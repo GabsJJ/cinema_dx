@@ -1,35 +1,50 @@
-import styles from '../../../../styles/Home.module.css'
-import Image from 'next/image'
+import Card from '../../Card'
+import * as S from './styles'
 import { useFetch } from '../../../hooks/useFetch'
 
 export interface Movie {
+  id: number
   poster_path: string
   title: string
-  genres: Array<{
-    id: string
-    name: string
-  }>
+  vote_average: number
+  genre_ids: Array<number>
+}
+
+interface Genre {
+  id: number
+  name: string
+}
+
+export interface GenresArray {
+  genres: Array<Genre>
+}
+
+interface ListMovies {
+  page: number
+  results: Array<Movie>
 }
 
 export const Home = (): JSX.Element => {
-  const { data } = useFetch<Movie>(`/3/movie/557`)
+  const { data: genresArrayResult } =
+    useFetch<GenresArray>(`/3/genre/movie/list`)
+  const { data: movies } = useFetch<ListMovies>(
+    `/3/discover/movie?sort_by=popularity.desc`
+  )
 
   return (
-    <div className={styles.container}>
-      <main>
-        <Image
-          src={'https://image.tmdb.org/t/p/w500' + data?.poster_path}
-          alt="movie poster"
-          width={424}
-          height={637}
-        />
-        <p style={{ fontWeight: 'bold', fontSize: 20 }}>{data?.title}</p>
-        {data?.genres.map((genre) => {
-          return <p key={genre.id}>{genre.name}</p>
+    <>
+      <S.Title>Most Popular</S.Title>
+      <S.Main>
+        {movies?.results.map((movie: Movie, key) => {
+          return (
+            <Card
+              key={key}
+              movieObject={movie}
+              genresArray={genresArrayResult}
+            />
+          )
         })}
-      </main>
-
-      <footer className={styles.footer}></footer>
-    </div>
+      </S.Main>
+    </>
   )
 }
