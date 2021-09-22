@@ -27,10 +27,17 @@ const Card: React.FC<CardProps> = ({ movieObject, genresArray, className }) => {
         <S.Title>{movieObject.title}</S.Title>
         <S.Genres>
           {movieObject.genre_ids.map((genreFromMovies, key) => {
-            const genre = genresArray.genres.find(
-              (element) => element.id === genreFromMovies
-            )
-            return <S.Subtitle key={key}>{genre.name}</S.Subtitle>
+            if (key < 3) {
+              const genre = genresArray.genres.find(
+                (element) => element.id === genreFromMovies
+              )
+              if (
+                (key === 0 && movieObject.genre_ids.length > 1) ||
+                (key === 1 && movieObject.genre_ids.length > 2)
+              )
+                return <S.Subtitle key={key}>{genre.name} | </S.Subtitle>
+              return <S.Subtitle key={key}>{genre.name}</S.Subtitle>
+            }
           })}
         </S.Genres>
       </S.Details>

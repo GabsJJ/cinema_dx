@@ -18,4 +18,5 @@ export interface GenresArray {
 export interface ListMovies {
   page: number
   results: Array<Movie>
+  total_pages: number
 }

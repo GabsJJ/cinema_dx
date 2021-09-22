@@ -11,7 +11,7 @@ export const Container = styled.section<ContainerProps>`
   max-width: ${({ width }) => (width ? width : 176)}px;
   max-height: ${({ height }) => (height ? height : 264)}px;
 
-  margin: 0 5px 150px 20px;
+  margin: 0 0 120px 1%;
 `
 export const ContainerFigure = styled.div`
   height: 264px;
@@ -41,15 +41,6 @@ export const Subtitle = styled.p`
   margin-top: 7px;
   margin-bottom: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
-
-  border: 1.6px solid gray;
-  border-radius: 15px;
-  padding: 4.5px;
-
-  &:hover {
-    background-color: gray;
-    color: white;
-  }
 `
 
 export const VoteAverage = styled.p`

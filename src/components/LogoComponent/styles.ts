@@ -6,10 +6,15 @@ export const Header = styled.header`
   flex-direction: row;
   justify-content: space-between;
 
-  background-color: #ff2f53;
+  background-color: #ff234b;
   color: white;
   font-weight: bold;
   padding: 15px;
+`
+
+export const HeaderContainer = styled.a`
+  display: flex;
+  align-items: center;
 `
 
 export const Figure = styled(DefaultFigure)`
