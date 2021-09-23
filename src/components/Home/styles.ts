@@ -3,7 +3,7 @@ import {
   Header as DefaultHeader,
   Aside as DefaultAside,
   LogoComponent as DefaultLogoComponent,
-} from '../../../components'
+} from '..'
 
 export const ContainerCards = styled.section`
   display: flex;
@@ -21,6 +21,14 @@ export const Grid = styled.div`
     'logo header'
     'aside main'
     'aside main';
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 0fr 10fr 1fr;
+    grid-template-areas:
+      'logo header'
+      'main main'
+      'main main';
+  }
 `
 
 export const LogoComponent = styled(DefaultLogoComponent)`
@@ -75,5 +83,11 @@ export const PaginateContainer = styled.div`
 
   .previous a {
     background-color: #ff2f53;
+  }
+
+  @media (max-width: 380px) {
+    .pagination {
+      justify-content: right;
+    }
   }
 `

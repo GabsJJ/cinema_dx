@@ -1,13 +1,15 @@
 import * as S from './styles'
+import { Search } from '../index'
 
 interface HeaderProps {
+  setTitle?: (value: string) => void
   className?: string
 }
 
-const Header: React.FC<HeaderProps> = ({ className }) => {
+const Header: React.FC<HeaderProps> = ({ setTitle, className }) => {
   return (
     <S.Header className={className}>
-      <input type="text" placeholder="Search" />
+      <Search setTitle={setTitle} />
     </S.Header>
   )
 }

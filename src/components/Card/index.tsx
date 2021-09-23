@@ -17,7 +17,11 @@ const Card: React.FC<CardProps> = ({ movieObject, genresArray, className }) => {
       <S.VoteAverage>{movieObject.vote_average}</S.VoteAverage>
       <S.ContainerFigure>
         <Figure
-          src={'https://image.tmdb.org/t/p/w500' + movieObject.poster_path}
+          src={
+            movieObject.poster_path
+              ? 'https://image.tmdb.org/t/p/w500' + movieObject.poster_path
+              : '/images/noimg.jpg'
+          }
           alt="movie poster"
           width={176}
           height={264}
