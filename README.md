@@ -13,7 +13,12 @@ yarn install
 ## Usage
 
 ```sh
+yarn build
 yarn run start
+
+or
+
+yarn dev
 ```
 
 ## Author
