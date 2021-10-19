@@ -16,6 +16,10 @@ export const Container = styled.section<ContainerProps>`
 export const ContainerFigure = styled.div`
   height: 264px;
   box-shadow: 2px 2px 19px 0px rgb(0 0 0 / 67%);
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const Details = styled.div`
